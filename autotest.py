@@ -279,11 +279,11 @@ class Script(scripts.Script):
             p = copy(pc)
             modules.processing.fix_seed(p)
 
-            if not p.override_settings['sd_model_checkpoint']:
-                model_name = shared.sd_model.sd_checkpoint_info.name
+            if 'sd_model_checkpoint' in p.override_settings:
+                model_name = p.override_settings['sd_model_checkpoint']
                 lora_name = str(model_name)
             else:
-                model_name = p.override_settings['sd_model_checkpoint']
+                model_name = shared.sd_model.sd_checkpoint_info.name
                 lora_name = str(model_name)
 
             if not simple_test_activate:
@@ -335,7 +335,7 @@ class Script(scripts.Script):
 
             objects = ['street, ' + i for i in objects]
 
-            y_labels = [pose[13:], emotion]#, small_feature, small_animals, indoor, outdoor, nature, objects, buildings, clothes]
+            y_labels = [pose, emotion, small_feature, small_animals, indoor, outdoor, nature, objects, buildings, clothes]
             y_names = ['pose', 'emotion', 'small_feature', 'small_animals', 'indoor', 'outdoor', 'nature', 'objects', 'buildings', 'clothes']
 
             prompt = p.prompt
@@ -400,11 +400,11 @@ class Script(scripts.Script):
 
             modules.processing.fix_seed(p)
 
-            if not p.override_settings['sd_model_checkpoint']:
-                model_name = shared.sd_model.sd_checkpoint_info.name
+            if 'sd_model_checkpoint' in p.override_settings:
+                model_name = p.override_settings['sd_model_checkpoint']
                 lora_name = str(model_name)
             else:
-                model_name = p.override_settings['sd_model_checkpoint']
+                model_name = shared.sd_model.sd_checkpoint_info.name
                 lora_name = str(model_name)
 
             prompt = p.prompt
@@ -493,11 +493,11 @@ class Script(scripts.Script):
 
             modules.processing.fix_seed(p)
 
-            if not p.override_settings['sd_model_checkpoint']:
-                model_name = shared.sd_model.sd_checkpoint_info.name
+            if 'sd_model_checkpoint' in p.override_settings:
+                model_name = p.override_settings['sd_model_checkpoint']
                 lora_name = str(model_name)
             else:
-                model_name = p.override_settings['sd_model_checkpoint']
+                model_name = shared.sd_model.sd_checkpoint_info.name
                 lora_name = str(model_name)
 
             prompt = p.prompt
@@ -562,7 +562,7 @@ class Script(scripts.Script):
                 'Bakery',
                 '2girls, dancing, Living room',
             ]
-
+            '''
             selcted_prompts = ['octans, sky, star (sky), scenery, starry sky, night, 1girl, night sky, solo, outdoors, signature, building, cloud, milky way, sitting, tree, long hair, city, silhouette, cityscapemasterpiece, best quality, ,halftone,cloud, light_particles, space, sky,water,girl,night',
                 'masterpiece, intricate detail,highres,best quality, cowboy shot,extremely intricate,black hair,hat ribbon, portrait,backless dress, (long dress:1.2), very long hair, breasts, bare shoulders, sky, ocean, water, looking at viewer, italian, head tilt, wind, cloud, sunlight, outdoor, 1girl, solo, BREAK, cinematic light,',
                 '1man, ((pure white background)), baseball cap, hat, solo, smile, hood down, jacket, hood, headphones, closed mouth, blue hair, long sleeves, fingernails, sleeves past wrists, looking at viewer, multicolored eyes, short hair, hooded jacket, red jacket, hair ornament, object hug, blush,white headwear, upper body, blue eyes, claw pose, heart, black headwear, hand up, bow, hoodie, hairclip,button badge, puffy long sleeves, puffy sleeves, black bow, badge, holding, drawstring, red eyes, star (symbol), multicolored hair, lightning bolt symbol, colorful, looking to the side',
@@ -570,7 +570,7 @@ class Script(scripts.Script):
                 '(Extremely detailed floating city:1.3), ((1 detailed mirage-castle floats above the clouds)and(Detailed floats minarets illusion, detailed floats belfry illusion)and(Highly transparent mirage)and(Detailed view of the base of the Mirage castle)),ultra-detailed,extremely detailed and beautiful, sky and white cloud and sunset glow background,ultra-detailed birds, (floating city in bloom, Floating petals, blooming gardens in the sky,  many vines on the wall:1.2)Imagination, dream, 1 girl, (1 girl at floating city:1.3), (solo), (Super wide Angle lens), (back), behind head, white dress, (full body), (bare feet), (Backless dress), the girl away from camera, Holy Light,'
                                ]
             selcted_prompts = 4 * selcted_prompts
-
+            '''
             selected_names = [str(i+1) for i in range(len(selcted_prompts))]
 
             all_prompts = []
